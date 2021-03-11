@@ -6,13 +6,13 @@
 /*   By: eblastoi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/12 14:40:39 by eblastoi          #+#    #+#             */
-/*   Updated: 2021/01/24 20:39:25 by eblastoi         ###   ########.fr       */
+/*   Updated: 2021/01/26 17:14:25 by eblastoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int		ft_printf(const char *format, ...)
+int			ft_printf(const char *format, ...)
 {
 	va_list	ap;
 	t_var	*flags;
@@ -27,7 +27,7 @@ int		ft_printf(const char *format, ...)
 	{
 		struct_init(flags);
 		if (!(format = check_format((char*)format, flags, ap)))
-		    return (result);
+			return (result);
 		format++;
 	}
 	va_end(ap);
@@ -36,7 +36,7 @@ int		ft_printf(const char *format, ...)
 	return (result);
 }
 
-void 	struct_init(t_var *n_list)
+void		struct_init(t_var *n_list)
 {
 	n_list->minus = 0;
 	n_list->zero = 0;
@@ -51,13 +51,13 @@ void 	struct_init(t_var *n_list)
 	n_list->arg3 = 0;
 }
 
-char	*check_format(char *format, t_var *flags, va_list ap)
+char		*check_format(char *format, t_var *flags, va_list ap)
 {
 	if (*format == '%')
 	{
 		format++;
 		if (*format == '\0')
-		    return (NULL);
+			return (NULL);
 		format = format + (ft_parse(flags, format, ap));
 	}
 	else
@@ -68,12 +68,13 @@ char	*check_format(char *format, t_var *flags, va_list ap)
 	return (format);
 }
 
-void 	check_type(t_var *flags, va_list ap)
+void		check_type(t_var *flags, va_list ap)
 {
-    if (flags->type == 'c' || (flags->type == '%'))
-        print_char(flags, ap);
-    else if (flags->type == 's')
-        print_string(flags, ap);
-    else if (flags->type == 'd' || flags->type == 'i' || flags->type == 'u' || flags->type == 'x' || flags->type == 'X' || flags->type == 'p')
-        check_types(flags, ap);
+	if (flags->type == 'c' || (flags->type == '%'))
+		print_char(flags, ap);
+	else if (flags->type == 's')
+		print_string(flags, ap);
+	else if (flags->type == 'd' || flags->type == 'i' || flags->type == 'u' || \
+			flags->type == 'x' || flags->type == 'X' || flags->type == 'p')
+		check_types(flags, ap);
 }

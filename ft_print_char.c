@@ -6,13 +6,13 @@
 /*   By: eblastoi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/24 20:02:52 by eblastoi          #+#    #+#             */
-/*   Updated: 2021/01/24 20:02:55 by eblastoi         ###   ########.fr       */
+/*   Updated: 2021/01/26 15:55:11 by eblastoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static void 	print_char_if_minus(t_var *flags, char c)
+static void		print_char_if_minus(t_var *flags, char c)
 {
 	ft_putchar(c);
 	flags->res += 1;
@@ -23,7 +23,7 @@ static void 	print_char_if_minus(t_var *flags, char c)
 	}
 }
 
-static void 	print_char_if_zero(t_var *flags, char c)
+static void		print_char_if_zero(t_var *flags, char c)
 {
 	while (flags->width-- > 1)
 	{
@@ -34,9 +34,9 @@ static void 	print_char_if_zero(t_var *flags, char c)
 	flags->res += 1;
 }
 
-void 		print_char(t_var *flags, va_list ap)
+void			print_char(t_var *flags, va_list ap)
 {
-	char  c;
+	char	c;
 
 	if (flags->type == '%')
 		c = '%';

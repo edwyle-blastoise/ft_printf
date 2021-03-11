@@ -6,7 +6,7 @@
 /*   By: eblastoi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/23 15:18:59 by eblastoi          #+#    #+#             */
-/*   Updated: 2021/01/23 15:19:01 by eblastoi         ###   ########.fr       */
+/*   Updated: 2021/01/26 15:53:41 by eblastoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,8 @@ static int	n_len(unsigned long n)
 
 char		*ft_itoa_hex(unsigned long n, char type)
 {
-	char		*res;
-	const char 	*str;
+	char			*res;
+	const char		*str;
 	unsigned int	len;
 
 	if (type == 'x' || type == 'p')

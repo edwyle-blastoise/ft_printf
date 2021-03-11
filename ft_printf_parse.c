@@ -92,7 +92,7 @@ int			ft_parse(t_var *flags, const char *format, va_list ap)
 	const char		*ptr;
 
 	ptr = format;
-	while (*format != '\0')
+	while (*format)
 	{
 		if (check_null(flags, &format))
 			continue ;
